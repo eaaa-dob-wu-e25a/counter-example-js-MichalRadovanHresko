@@ -2,7 +2,7 @@ let increment = document.getElementById("increment-btn");
 let decrement = document.getElementById("decrement-btn");
 let reset = document.getElementById("reset-btn");
 let bold = document.getElementById("bold-button");
-let buttons = document.getElementsByClassName("counter-btn");
+let btns = document.getElementsByClassName("counter-btn");
 let count = document.getElementById("counter-value");
 let double = document.getElementById("double-counter");
 let newBut = document.createElement("button");
@@ -10,10 +10,19 @@ let makeRed = document.getElementById("red-button");
 
 increment.addEventListener ("click",function add(){
     count.textContent = +count.textContent + 1;
+    if (+count.textContent < 0) {
+        disableButts();
+    }
 })
 
 decrement.addEventListener ("click", function minus(){
     count.textContent = +count.textContent - 1;
+    if (+count.textContent < 0) {
+        disableButts();
+    }
+})
+        disableButts
+    }
 })
 
 reset.addEventListener ("click", function reset(){
@@ -26,9 +35,27 @@ double.addEventListener ("click", function doublee(){
     count.textContent = new_count;
 })
 makeRed.addEventListener('click', function red() {
-    count.style.color= 'red';
+    if (count.style.color === 'red') {
+        count.style.color = 'black';
+    } else {
+        count.style.color = 'red';
+    }
 })
 bold.addEventListener('click', function bold() {
-    count.style.fontWeight = 'bold';
+    if (count.style.fontWeight === 'bold') {
+        count.style.fontWeight = 'normal';
+    } else {
+        count.style.fontWeight = 'bold';
+    }
 })
+
+
+function disableButts() {
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].disabled = true;
+    }
+    if (+count.textContent < 0) {
+        console.log("Counter is negative!");
+    }
+}
 
