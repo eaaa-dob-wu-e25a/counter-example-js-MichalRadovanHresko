@@ -10,17 +10,14 @@ let makeRed = document.getElementById("red-button");
 
 increment.addEventListener ("click",function add(){
     count.textContent = +count.textContent + 1;
-    if (+count.textContent < 0) {
-        disableButts();
+    if (count<0) {
+        disableButts
     }
 })
 
 decrement.addEventListener ("click", function minus(){
     count.textContent = +count.textContent - 1;
-    if (+count.textContent < 0) {
-        disableButts();
-    }
-})
+     if (count<0) {
         disableButts
     }
 })
@@ -50,12 +47,11 @@ bold.addEventListener('click', function bold() {
 })
 
 
-function disableButts() {
-    for (let i = 0; i < btns.length; i++) {
-        btns[i].disabled = true;
+function disableButts () {
+    btns.array.array.forEach(e =>e.disable = true)
+    if (count< 0) {
+        btns.disable = true;
     }
-    if (+count.textContent < 0) {
-        console.log("Counter is negative!");
-    }
+
 }
 
